@@ -1,77 +1,44 @@
 <!DOCTYPE html>
-<html lang="en"> 
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="styles.css" rel="stylesheet">
     <title>MealBox</title>
-    <script>
-        document.addEventListener('DOMContentLoaded', (event) => {
-            function updateDisplay(selectorId, displayId) {
-                const selector = document.getElementById(selectorId);
-                const display = document.getElementById(displayId);
-                selector.addEventListener('change', function () {
-                    display.textContent = `Selected: ${this.options[this.selectedIndex].text}`;
-                });
-            }
-            
-            updateDisplay('veg', 'selected-veg');
-            updateDisplay('non-veg', 'selected-non-veg');
-            updateDisplay('juice', 'selected-juice');
-        });
-    </script>
+    <link href="styles.css" rel="stylesheet">
 </head>
 <body>
-    <h1 class="company-name">MealBox</h1>
-    <div class="starters-container">
-        <div class="veg-container"> 
-            <div class="veg">
-                <label for="veg">Choose your Veg Starter</label>
-                <div class="selector-container">
-                    <select name="veg" id="veg">
-                        <option value="chilli-panner">Chilli Panner</option>
-                        <option value="veg-manchurian">Veg Manchurian</option>
-                        <option value="veg-noodles">Veg Noodles</option>
-                        <option value="baby-corn">Baby Corn</option>
-                    </select>
-                    <div id="selected-veg" class="selected-display"></div>
-                </div>
-            </div>
-            <svg class="svg-plus" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
-                <path fill-rule="evenodd" d="M 11 2 L 11 11 L 2 11 L 2 13 L 11 13 L 11 22 L 13 22 L 13 13 L 22 13 L 22 11 L 13 11 L 13 2 Z"></path>
-            </svg>
+    <div class="selection-container">
+        <div class="dropdown-container">
+            <label for="veg">Choose your Veg Starter:</label>
+            <select id="veg">
+                <option value="Chilli Paneer">Chilli Paneer</option>
+                <option value="Veg Manchurian">Veg Manchurian</option>
+                <option value="Veg Noodles">Veg Noodles</option>
+                <option value="Baby Corn">Baby Corn</option>
+            </select>
         </div>
-        <div class="non-veg-container"> 
-            <div class="non-veg">
-                <label for="non-veg">Choose your Non-Veg Starter</label>
-                <div class="selector-container">
-                    <select name="non-veg" id="non-veg">
-                        <option value="chicken-tikka">Chicken Tikka</option>
-                        <option value="fish-fry">Fish Fry</option>
-                        <option value="mutton-kebab">Mutton Kebab</option>
-                        <option value="prawn-fry">Prawn Fry</option>
-                    </select>
-                    <div id="selected-non-veg" class="selected-display"></div>
-                </div>
-            </div>
-            <svg class="svg-plus" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
-                <path fill-rule="evenodd" d="M 11 2 L 11 11 L 2 11 L 2 13 L 11 13 L 11 22 L 13 22 L 13 13 L 22 13 L 22 11 L 13 11 L 13 2 Z"></path>
-            </svg>
+        <div class="dropdown-container">
+            <label for="non-veg">Choose your Non-Veg Starter:</label>
+            <select id="non-veg">
+                <option value="Chicken Tikka">Chicken Tikka</option>
+                <option value="Fish Fry">Fish Fry</option>
+                <option value="Mutton Kebab">Mutton Kebab</option>
+                <option value="Prawn Fry">Prawn Fry</option>
+            </select>
         </div>
-        <div class="juice-container"> 
-            <div class="juice">
-                <label for="juice">Choose your Juice</label>
-                <div class="selector-container">
-                    <select name="juice" id="juice">
-                        <option value="orange-juice">Orange Juice</option>
-                        <option value="apple-juice">Apple Juice</option>
-                        <option value="mango-juice">Mango Juice</option>
-                        <option value="berry-smoothie">Berry Smoothie</option>
-                    </select>
-                    <div id="selected-juice" class="selected-display"></div>
-                </div>
-            </div>
+        <div class="dropdown-container">
+            <label for="juice">Choose your Juice:</label>
+            <select id="juice">
+                <option value="Orange Juice">Orange Juice</option>
+                <option value="Apple Juice">Apple Juice</option>
+                <option value="Mango Juice">Mango Juice</option>
+                <option value="Berry Smoothie">Berry Smoothie</option>
+            </select>
         </div>
     </div>
+    <div id="selected-items"></div>
+    <button id="confirm-selection">Confirm Selection</button>
+    <div id="confirmation-message"></div>
+    <script src="script.js"></script>
 </body>
 </html>
