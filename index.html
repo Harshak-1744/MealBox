@@ -8,14 +8,46 @@
 </head>
 <body>
     <h1 class="company-name">MealBox</h1>
-    <label for ="veg">Choose your Veg Starter</label>
-    <div class="veg">
-        <select name="veg" id="veg">
-            <option value="chilli-panner">Chilli Panner</option>
-            <option value="veg-manchurian">Veg Manchurian</option>
-            <option value="veg-noodles">Veg Noodles</option>
-            <option value="baby-corn">Baby Corn</option>
-      </select>
+    <div class="starters-container">
+        <div class="veg-container"> 
+            <div class="veg">
+                <label for="veg">Choose your Veg Starter</label>
+                <select name="veg" id="veg">
+                    <option value="chilli-panner">Chilli Panner</option>
+                    <option value="veg-manchurian">Veg Manchurian</option>
+                    <option value="veg-noodles">Veg Noodles</option>
+                    <option value="baby-corn">Baby Corn</option>
+                </select>
+            </div>
+            <svg class="svg-plus" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+                <path fill-rule="evenodd" d="M 11 2 L 11 11 L 2 11 L 2 13 L 11 13 L 11 22 L 13 22 L 13 13 L 22 13 L 22 11 L 13 11 L 13 2 Z"></path>
+            </svg>
+        </div>
+        <div class="non-veg-container"> 
+            <div class="non-veg">
+                <label for="non-veg">Choose your Non-Veg Starter</label>
+                <select name="non-veg" id="non-veg">
+                    <option value="chicken-tikka">Chicken Tikka</option>
+                    <option value="fish-fry">Fish Fry</option>
+                    <option value="mutton-kebab">Mutton Kebab</option>
+                    <option value="prawn-fry">Prawn Fry</option>
+                </select>
+            </div>
+            <svg class="svg-plus" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+                <path fill-rule="evenodd" d="M 11 2 L 11 11 L 2 11 L 2 13 L 11 13 L 11 22 L 13 22 L 13 13 L 22 13 L 22 11 L 13 11 L 13 2 Z"></path>
+            </svg>
+        </div>
+        <div class="juice-container"> 
+            <div class="juice">
+                <label for="juice">Choose your Juice</label>
+                <select name="juice" id="juice">
+                    <option value="orange-juice">Orange Juice</option>
+                    <option value="apple-juice">Apple Juice</option>
+                    <option value="mango-juice">Mango Juice</option>
+                    <option value="berry-smoothie">Berry Smoothie</option>
+                </select>
+            </div>
+        </div>
     </div>
 </body>
 </html>
