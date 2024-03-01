@@ -1,12 +1,18 @@
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', (function() {
     const confirmButton = document.getElementById('confirm-selection');
     const confirmationMessage = document.getElementById('confirmation-message');
     const selectedItems = document.getElementById('selected-items');
 
-    confirmButton.addEventListener('click', () => {
-        const veg = document.getElementById('veg').value;
-        const nonVeg = document.getElementById('non-veg').value;
-        const juice = document.getElementById('juice').value;
+    // Cache DOM references for inputs
+    const vegInput = document.getElementById('veg');
+    const nonVegInput = document.getElementById('non-veg');
+    const juiceInput = document.getElementById('juice');
+
+    confirmButton.addEventListener('click', function() {
+        // Use cached inputs
+        const veg = vegInput.value;
+        const nonVeg = nonVegInput.value;
+        const juice = juiceInput.value;
 
         selectedItems.innerHTML = `
             <p>Selected Veg Starter: ${veg}</p>
@@ -17,16 +23,25 @@ document.addEventListener('DOMContentLoaded', () => {
         confirmationMessage.style.display = 'block';
         confirmationMessage.innerHTML = `
             <p>These are the items you selected. Do you want to edit them?</p>
-            <button onclick="editSelection()">Edit</button>
-            <button onclick="finalizeSelection()">Confirm</button>
+            <button id="edit-selection">Edit</button>
+            <button id="finalize-selection">Confirm</button>
         `;
+
+        // Use event delegation for dynamically added buttons
+        confirmationMessage.addEventListener('click', function(event) {
+            if (event.target.id === 'edit-selection') {
+                editSelection();
+            } else if (event.target.id === 'finalize-selection') {
+                finalizeSelection();
+            }
+        }, { once: true }); // Use { once: true } to automatically remove the listener after execution
     });
-});
 
-function editSelection() {
-    document.getElementById('confirmation-message').style.display = 'none';
-}
+    function editSelection() {
+        confirmationMessage.style.display = 'none';
+    }
 
-function finalizeSelection() {
-    document.getElementById('confirmation-message').innerHTML = '<p>Wish you a happy meal! :)<p><img src="happyMeal.jpg" alt="Happy Meal">';
-}
+    function finalizeSelection() {
+        confirmationMessage.innerHTML = '<p>Wish you a happy meal! :)<p><img src="happyMeal.jpg" alt="Happy Meal">';
+    }
+})());
